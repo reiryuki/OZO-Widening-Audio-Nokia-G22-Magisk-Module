@@ -20,7 +20,7 @@
 - Magisk or KernelSU or Kitsune Mask or Apatch or something similar installed
 
 ## Installation Guide & Download Link
-- Install this module https://www.pling.com/p// via Magisk app or KernelSU app or Recovery if Magisk installed
+- Install this module https://www.pling.com/p/2236440/ via Magisk app or KernelSU app or Recovery if Magisk installed
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other else audio mod module
 - Reboot
 - You can boost internal speaker sound by running this command in Termux:
