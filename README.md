@@ -25,21 +25,15 @@
 - Reboot
 - You can boost internal speaker sound by running this command in Termux:
 
-  `su`
-
-  `resetprop persist.audio.sys.boostmode 1`
+  `su -c resetprop persist.audio.sys.boostmode 1`
 
   To turn it off:
 
-  `su`
-
-  `resetprop persist.audio.sys.boostmode 0`
+  `su -c resetprop persist.audio.sys.boostmode 0`
 
   Or:
   
-  `su`
-
-  `resetprop -p --delete persist.audio.sys.boostmode`
+  `su -c resetprop -p --delete persist.audio.sys.boostmode`
 
 
 ## Optionals
