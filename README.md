@@ -42,6 +42,7 @@
 - Stream: https://t.me/ryukinotes/52
 
 ## Troubleshootings
+- https://t.me/ryukinotes/50
 - Global: https://t.me/ryukinotes/34
 
 ## Support & Bug Report
