@@ -123,7 +123,6 @@ if [ "$KSU" == true ]; then
   ui_print " KSUVersion=$KSU_VER"
   ui_print " KSUVersionCode=$KSU_VER_CODE"
   ui_print " KSUKernelVersionCode=$KSU_KERNEL_VER_CODE"
-  sed -i 's|#k||g' $MODPATH/post-fs-data.sh
 else
   ui_print " MagiskVersion=$MAGISK_VER"
   ui_print " MagiskVersionCode=$MAGISK_VER_CODE"
@@ -173,14 +172,6 @@ PRODUCT=`realpath $MIRROR/product`
 SYSTEM_EXT=`realpath $MIRROR/system_ext`
 ODM=`realpath $MIRROR/odm`
 MY_PRODUCT=`realpath $MIRROR/my_product`
-
-# sepolicy
-FILE=$MODPATH/sepolicy.rule
-DES=$MODPATH/sepolicy.pfsd
-if [ "`grep_prop sepolicy.sh $OPTIONALS`" == 1 ]\
-&& [ -f $FILE ]; then
-  mv -f $FILE $DES
-fi
 
 # .aml.sh
 mv -f $MODPATH/aml.sh $MODPATH/.aml.sh
@@ -240,46 +231,6 @@ elif [ -d $DIR ]\
   ui_print "- Different module name is detected"
   ui_print "  Cleaning-up $MODID data..."
   cleanup
-  ui_print " "
-fi
-
-# function
-permissive_2() {
-sed -i 's|#2||g' $MODPATH/post-fs-data.sh
-}
-permissive() {
-FILE=/sys/fs/selinux/enforce
-SELINUX=`cat $FILE`
-if [ "$SELINUX" == 1 ]; then
-  if ! setenforce 0; then
-    echo 0 > $FILE
-  fi
-  SELINUX=`cat $FILE`
-  if [ "$SELINUX" == 1 ]; then
-    ui_print "  Your device can't be turned to Permissive state."
-    ui_print "  Using Magisk Permissive mode instead."
-    permissive_2
-  else
-    if ! setenforce 1; then
-      echo 1 > $FILE
-    fi
-    sed -i 's|#1||g' $MODPATH/post-fs-data.sh
-  fi
-else
-  sed -i 's|#1||g' $MODPATH/post-fs-data.sh
-fi
-}
-
-# permissive
-if [ "`grep_prop permissive.mode $OPTIONALS`" == 1 ]; then
-  ui_print "- Using device Permissive mode."
-  rm -f $MODPATH/sepolicy.rule
-  permissive
-  ui_print " "
-elif [ "`grep_prop permissive.mode $OPTIONALS`" == 2 ]; then
-  ui_print "- Using Magisk Permissive mode."
-  rm -f $MODPATH/sepolicy.rule
-  permissive_2
   ui_print " "
 fi
 
@@ -393,7 +344,7 @@ for FILE in $FILES; do
       ui_print "- Detected"
       ui_print "$DES"
       NAME=`basename $FILE`
-      if echo $FILE | grep lib64; then
+      if echo $FILE | grep -q lib64; then
         rm -f $MODPATH/system/vendor/lib64/$NAME
       else
         rm -f $MODPATH/system/vendor/lib/$NAME
@@ -411,7 +362,7 @@ for FILE in $FILES; do
       ui_print "- Detected"
       ui_print "$DES"
       NAME=`basename $FILE`
-      if echo $FILE | grep lib64; then
+      if echo $FILE | grep -q lib64; then
         rm -f $MODPATH/system/vendor/lib64/$NAME
       else
         rm -f $MODPATH/system/vendor/lib/$NAME
