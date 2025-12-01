@@ -10,7 +10,6 @@
 
 ## Sources
 - https://dumps.tadiphone.dev/dumps/nokia/sfi ussi_sunfire_full-user-14-UP1A.231005.007-eng.jenkin.20240717.151552-release-keys
-- libmagiskpolicy.so: Kitsune Mask R6687BB53
 
 ## Screenshots
 - https://t.me/ryukimodsscreenshots/37
@@ -20,7 +19,7 @@
 - Magisk or KernelSU or Kitsune Mask or Apatch or something similar installed
 
 ## Installation Guide & Download Link
-- Install this module https://www.pling.com/p/2236440/ via Magisk app or KernelSU app or Recovery if Magisk installed
+- Install this module https://www.pling.com/p/2236440/ via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other else audio mod module
 - Reboot
 - You can boost internal speaker sound by running this command in Termux:
