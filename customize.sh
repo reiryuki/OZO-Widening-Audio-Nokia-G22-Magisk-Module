@@ -312,7 +312,7 @@ for NAME in $NAMES; do
     if [ -f $SYSTEM/lib64/$NAME ]; then
       cp -f $SYSTEM/lib64/$NAME $MODPATH/system/vendor/lib64
     else
-      if file /*/bin/hw/*hardware*audio* | grep -q 64-bit; then
+      if file /*/bin/hw/*audio* | grep -q 64-bit; then
         ui_print "! $SYSTEM/lib64/$NAME"
         ui_print "  not found"
         ui_print "  This module will not work"
@@ -325,7 +325,7 @@ for NAME in $NAMES; do
     if [ -f $SYSTEM/lib/$NAME ]; then
       cp -f $SYSTEM/lib/$NAME $MODPATH/system/vendor/lib
     else
-      if file /*/bin/hw/*hardware*audio* | grep -q 32-bit; then
+      if file /*/bin/hw/*audio* | grep -q 32-bit; then
         ui_print "! $SYSTEM/lib/$NAME"
         ui_print "  not found"
         ui_print "  This module will not work"
@@ -457,6 +457,7 @@ else
 fi
 
 # run
+MODSYSTEM=/system
 . $MODPATH/copy.sh
 . $MODPATH/.aml.sh
 

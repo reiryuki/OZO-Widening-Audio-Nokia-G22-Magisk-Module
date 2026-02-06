@@ -16,13 +16,14 @@
 
 ## Requirements
 - arm64-v8a or armeabi-v7a architecture
+- HIDL audio service
 - Magisk or KernelSU or Kitsune Mask or Apatch or something similar installed
 
 ## Installation Guide & Download Link
 - Install this module https://www.pling.com/p/2236440/ via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other else audio mod module
 - Reboot
-- You can boost internal speaker sound by running this command in Termux:
+- You can boost loudspeaker sound by running this command in Termux:
 
   `su -c resetprop persist.audio.sys.boostmode 1`
 
