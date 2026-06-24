@@ -55,7 +55,7 @@ v0.1
 - Magisk or KernelSU or Kitsune Mask or Apatch or something similar installed
 
 ## Installation Guide & Download Link
-- Install this module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- Install this module https://devuploads.com/8c4lhev618ah via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other else audio mod module
 - Reboot
 - Open OZO Widening Audio app, turn it ON and grant root permission
