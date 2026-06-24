@@ -9,7 +9,8 @@
 - Boost loudspeaker audio only
 
 ## Sources
-https://dumps.tadiphone.dev/dumps/nokia/sfi ussi_sunfire_full-user-14-UP1A.231005.007-eng.jenkin.20240717.151552-release-keys
+- https://dumps.tadiphone.dev/dumps/nokia/sfi ussi_sunfire_full-user-14-UP1A.231005.007-eng.jenkin.20240717.151552-release-keys
+- libmagiskpolicy.so: Magisk (stable) 30.7 (30700)
 
 ## Changelog
 
