@@ -1,4 +1,13 @@
 # function
+remove_cache() {
+FILES=`find $MODPATH -type f -name *.apk | sed -e 's|.apk||g'`
+APPS=`for FILE in $FILES; do basename $FILE; done`
+for APP in $APPS; do
+  rm -f `find /data/system/package_cache\
+   /data/dalvik-cache /data/resource-cache\
+   -type f -name *$APP*`
+done
+}
 mount_partitions_in_recovery() {
 if [ "$BOOTMODE" != true ]; then
   BLOCK=/dev/block/bootdevice/by-name
@@ -54,6 +63,11 @@ if [ "$BOOTMODE" != true ]; then
     || mount -o rw -t auto $BLOCK2$DIR $DIR
   fi
   DIR=/cust
+  if [ -d $DIR ] && ! is_mounted $DIR; then
+    mount -o rw -t auto $BLOCK$DIR $DIR\
+    || mount -o rw -t auto $BLOCK2$DIR $DIR
+  fi
+  DIR=/klogdump
   if [ -d $DIR ] && ! is_mounted $DIR; then
     mount -o rw -t auto $BLOCK$DIR $DIR\
     || mount -o rw -t auto $BLOCK2$DIR $DIR
@@ -237,7 +251,8 @@ rm -rf /metadata/magisk/"$MODID"\
  /persist/magisk/"$MODID"\
  /data/unencrypted/magisk/"$MODID"\
  /cache/magisk/"$MODID"\
- /cust/magisk/"$MODID"
+ /cust/magisk/"$MODID"\
+ /klogdump/magisk/"$MODID"
 }
 
 
